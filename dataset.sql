@@ -1,0 +1,10 @@
+create database transaction;
+create database master_data;
+use transaction;
+update transactions set `Order Date` = date(str_to_date(`Order Date`, '%m/%d/%Y %H:%i'));
+alter table transactions modify `Order Date` Date;
+select * from transactions;
+update transactions set `Order Date` = 04/01/19 where `Order Date` = 04/01/1819;
+use master_data;
+alter table master_data add constraint productId primary key(productID);
+select * from master_data;
